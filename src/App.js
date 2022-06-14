@@ -1,9 +1,11 @@
 import Counter from './components/Counter';
-
+import './styles/App.scss';
 
 function App() {
   return (
-    <Counter />
+    <div className="backdrop">
+      <Counter />
+    </div>
   );
 }
 

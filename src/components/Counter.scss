@@ -1,0 +1,28 @@
+@import '../styles/Shared.scss';
+
+.counter {
+    margin: 5rem auto;
+    box-shadow: $purple_shadow;
+    width: 40rem;
+    max-width: 90%;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    background: linear-gradient( $counter_gradient );
+    background-size: 400% 400%;
+    animation: linear gradient 5000ms infinite;
+
+    h1 {
+        text-transform: uppercase;
+        color: white;
+        margin: 0;
+        font-size: 1rem;
+    }
+}
+  
+.value {
+    font-size: 2rem;
+    color: white;
+    margin: 2rem 0;
+    font-weight: bold;
+}

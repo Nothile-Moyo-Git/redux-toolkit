@@ -1,0 +1,19 @@
+// Brand colors
+$brand_color_one: #5F0A87;
+$brand_color_two: #A4508B;
+$brand_color_three: #B91372;
+$brand_color_four: #6B0F1A;
+$brand_color_five: #F53803;
+$brand_color_six: #F5D020;
+
+
+// backdrop
+$backdrop_color_one: rgb(30, 32, 42);
+
+// gradients
+$purple_gradient: ( $brand_color_one, $brand_color_two );
+$counter_gradient: ( 45deg, $brand_color_one, $brand_color_two, $brand_color_three, $brand_color_four  );
+
+// box shadow
+$box_shadow: (0px 0px 20px 0px rgba(0,0,0,0.4));
+$purple_shadow: (0px 0px 20px 0px $brand_color_two);

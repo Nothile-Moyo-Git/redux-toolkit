@@ -1,2 +1,4 @@
-$brand_color_one: #5F0A87;
-$brand_color_two: #5F0A87;
+// Importing our remaining scss files
+
+@import './branding';
+@import './animations';
