@@ -1,4 +1,3 @@
-import classes from './Auth.module.css';
 import './Auth.scss';
 
 const Auth = () => {

@@ -1,24 +1,25 @@
-// Import redux
-const redux = require('redux');
+// Create slice
+import { createSlice, configureStore } from '@reduxjs/toolkit';
 
-// Redux reducer function, works similarly to the useReducer hook in the sense that we have a previous state and pass an action to it
-const reducerFunction = (state = { counter: 0 }, action) => {
+const initialState = { counter: 0, showCounter: true };
 
-    console.log('called');
-
-    if( action.type === 'increment' ){
-        return { counter: state.counter + 1 };
+const counterSlice = createSlice({
+    name: 'counter',
+    initialState: initialState,
+    reducers: {
+        increment(state) {  state.counter++; console.log(state.counter); },
+        decrememt(state) {  state.counter--; },
+        increase(state, action) { state.counter = state.counter + action.payload.amount; },
+        decrease(state, action) { state.counter = state.counter - action.payload.amount; },
+        toggleCounter(state) { state.showCounter = !state.showCounter; }
     }
-
-    if( action.type === 'decrement' ){
-        return { counter: state.counter - 1 };
-    }
-
-    return state;
-}
+});
 
 // Creating our redux store based on our reducer function, our state will now be stored there
-const store = redux.legacy_createStore(reducerFunction);
+const store = configureStore({
+    reducer: { counter: counterSlice.reducer }
+});
 
 // Export out store so we can subscribe components to it. Subscribed components re-evaluate with the previous state and action passed to it
 export default store;
+export const counterActions = counterSlice.actions;

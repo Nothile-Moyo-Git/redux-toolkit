@@ -1,15 +1,19 @@
 @import '../styles/Shared.scss';
 
-
 .header {
     width: 100%;
     height: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #3c0080;
+    background: linear-gradient($counter_gradient);
+    background-size: 400% 400%;
+    animation: linear gradient 5000ms infinite;
+    box-shadow: $purple_shadow;
     color: white;
-    padding: 0 10%;
+    padding: 0 3%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
 
     ul {
         display: flex;

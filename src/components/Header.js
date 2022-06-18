@@ -1,8 +1,8 @@
-import classes from './Header.module.css';
+import './Header.scss';
 
 const Header = () => {
   return (
-    <header className={classes.header}>
+    <header className="header">
       <h1>Redux Auth</h1>
       <nav>
         <ul>
