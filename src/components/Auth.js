@@ -1,5 +1,5 @@
 import './Auth.scss';
-import { inputActions } from '../store/index'
+import { inputActions, authActions } from '../store/index'
 
 // Import use selector to give us access to our store
 import { useSelector, useDispatch } from 'react-redux';
@@ -17,10 +17,21 @@ const Auth = () => {
     dispatch(inputActions.updateEmail(event.target.value));
   }
 
+  const updatePasswordHandler = (event) => {
+    event.preventDefault();
+    dispatch(inputActions.updatePassword(event.target.value));
+  }
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    dispatch( authActions.login() );
+  }
+
   return (
     <main className="auth">
       <section>
-        <form>
+        <form onSubmit={submitHandler}>
+
           <div className="control">
             <label htmlFor='email'>Email</label>
             <input 
@@ -28,14 +39,23 @@ const Auth = () => {
               id='email' 
               autoComplete='username' 
               onChange={updateEmailHandler}
-              value={input.email}
+              value={input.email || ''}
               />
           </div>
+
           <div className="control">
             <label htmlFor='password'>Password</label>
-            <input type='password' id='password' autoComplete='current-password'/>
+            <input 
+              type='password' 
+              id='password' 
+              autoComplete='current-password'
+              onChange={updatePasswordHandler}
+              value={input.password || ''}
+            />
           </div>
+
           <button>Login</button>
+
         </form>
       </section>
     </main>

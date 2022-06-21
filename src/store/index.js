@@ -1,13 +1,14 @@
 // Create slice
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 
-const initialState = { counter: 0, showCounter: true };
-const initialInput = { email: '', password: '' };
+const initialCounterState = { counter: 0, showCounter: true };
+const initialInputState = { email: '', password: '' };
+const initialAuthState = { isAuthenticated: false };
 
 // Creating a state slice for our counter on the app
 const counterSlice = createSlice({
     name: 'counter',
-    initialState: initialState,
+    initialState: initialCounterState,
     reducers: {
         increment(state) {  state.counter++; },
         decrememt(state) {  state.counter--; },
@@ -21,10 +22,20 @@ const counterSlice = createSlice({
 // We're only updating our state using a payload here since we're padding event.target.value and not an object
 const inputSlice = createSlice({
     name: 'input',
-    initialState: initialInput,
+    initialState: initialInputState,
     reducers: {
         updateEmail(state, action){ state.email = action.payload; },
-        updatePassword(state, action){ state.password = action.payload.value; }
+        updatePassword(state, action){ state.password = action.payload; }
+    }
+});
+
+// Creating a third state slice for our authentication
+const authSlice = createSlice({
+    name: 'auth',
+    initialState: initialAuthState,
+    reducers: {
+        login(state){ state.isAuthenticated = true; },
+        logout(state){ state.isAuthenticated = false; }
     }
 });
 
@@ -32,7 +43,8 @@ const inputSlice = createSlice({
 const store = configureStore({
     reducer: { 
         counter: counterSlice.reducer,
-        input: inputSlice.reducer 
+        input: inputSlice.reducer,
+        auth: authSlice.reducer 
     }
 });
 
@@ -40,3 +52,4 @@ const store = configureStore({
 export default store;
 export const counterActions = counterSlice.actions;
 export const inputActions = inputSlice.actions;
+export const authActions = authSlice.actions;
