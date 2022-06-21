@@ -22,7 +22,7 @@ const Counter = () => {
   };
 
   const decrementHandler = () => {
-    dispatch(counterActions.decrememt());
+    dispatch(counterActions.decrement());
   };
 
   const decreaseHandler = () => {
