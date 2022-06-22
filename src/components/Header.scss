@@ -37,7 +37,11 @@
         @include breakpoint-min(mobile){
             margin-bottom: 0rem;
         }
-      }
+    }
+
+    h1 {
+        margin-top: 0.75rem;
+    }
 
     a {
         text-decoration: none;
@@ -60,6 +64,7 @@
         cursor: pointer;
         transition: all 0.15s linear;
         font-size: 1.25rem;
+        animation: fade-in 300ms linear;
 
         &:hover{
             background-color: $brand_color_three;

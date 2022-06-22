@@ -10,7 +10,7 @@
     text-align: center;
     background: linear-gradient( $email_gradient );
     background-size: 400% 400%;
-    animation: gradient 5000ms linear infinite;
+    animation: gradient 5000ms linear infinite, fade-in 300ms linear;
     box-shadow: $purple_shadow;
 
     button{
