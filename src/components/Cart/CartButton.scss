@@ -1,0 +1,37 @@
+@import '../../styles/Shared.scss';
+
+.button{
+    background-color: transparent;
+    border-color: white;
+    color: white;
+    transition: $standard_transition;
+    border: 1px white solid;
+    padding: 0.5rem 0.5rem;
+    border-radius: 20px;
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    @include state(){
+        background: white;
+
+        span{
+            background: -webkit-linear-gradient($purple_red_gradient);
+            background-size: 400% 400%;
+            animation: gradient 5s linear infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    span{
+        margin: 0 0.5rem;
+        transition: $standard_transition;
+    }
+
+    .badge{
+        background-color: #1ad1b9;
+        border-radius: 30px;
+        padding: 0.15rem 1.25rem;
+        color: #1d1d1d;
+    }
+}

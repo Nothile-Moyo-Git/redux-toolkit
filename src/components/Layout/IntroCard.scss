@@ -1,0 +1,30 @@
+@import '../../styles/Shared.scss';
+
+.intro-card{
+    width: 40rem;
+    margin: auto;
+    max-width: calc(100% - 2rem);
+    padding: 3rem 0rem;
+    text-align: center;
+    
+    h3{
+        background: -webkit-linear-gradient($purple_red_gradient);
+        background-size: 400% 400%;
+        animation: gradient 5s linear infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-filter: $purple_drop_shadow;
+        font-size: 5rem;
+
+    }
+
+    p{
+        background: -webkit-linear-gradient($purple_red_gradient);
+        background-size: 400% 400%;
+        animation: gradient 5s linear infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-filter: $purple_drop_shadow;
+        font-size: 3rem;
+    }
+}

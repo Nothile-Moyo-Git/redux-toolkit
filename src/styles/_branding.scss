@@ -16,9 +16,10 @@ $backdrop_color_one: rgb(30, 32, 42);
 
 // gradients
 $purple_gradient: ( $brand_color_one, $brand_color_two );
-$counter_gradient: ( 60deg, $brand_color_one, $brand_color_two, $brand_color_three, $brand_color_nine );
+$purple_red_gradient: ( 60deg, $brand_color_one, $brand_color_two, $brand_color_three, $brand_color_nine );
 $email_gradient: ( 60deg, $brand_color_eight, $brand_color_two, $brand_color_three, $brand_color_nine );
 
 // box shadow
 $box_shadow: (0px 0px 20px 0px rgba(0,0,0,0.4));
 $purple_shadow: (0px 0px 20px 0px $brand_color_two);
+$purple_drop_shadow: drop-shadow(0px 0px 1.5px $brand_color_two);
