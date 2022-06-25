@@ -5,7 +5,7 @@
     border-color: white;
     color: white;
     transition: $standard_transition;
-    border: 1px white solid;
+    border: 2px white solid;
     padding: 0.5rem 0.5rem;
     border-radius: 20px;
     font-size: 1.25rem;
@@ -13,6 +13,7 @@
 
     @include state(){
         background: white;
+        animation: pulse 2s linear infinite;
 
         span{
             background: -webkit-linear-gradient($purple_red_gradient);
@@ -21,6 +22,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        .cart-desc{
+            background: linear-gradient($purple_red_gradient);
+            background-size: 400% 400%;
+            animation: gradient 5s linear infinite;
+            -webkit-text-fill-color: white;
+        }
     }
 
     span{
@@ -28,10 +36,10 @@
         transition: $standard_transition;
     }
 
-    .badge{
-        background-color: #1ad1b9;
+    .cart-desc{
+        background-color: white;
         border-radius: 30px;
-        padding: 0.15rem 1.25rem;
-        color: #1d1d1d;
+        padding: 0.15rem 0.5rem;
+        color: $brand_color_two;
     }
 }

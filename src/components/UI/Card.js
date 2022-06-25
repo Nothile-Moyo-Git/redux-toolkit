@@ -1,9 +1,9 @@
-import classes from './Card.module.css';
+import './Card.scss';
 
 const Card = (props) => {
   return (
     <section
-      className={`${classes.card} ${props.className ? props.className : ''}`}
+      className={`card card--spaced ${props.className ? props.className : ''}`}
     >
       {props.children}
     </section>

@@ -1,0 +1,17 @@
+@import '../../styles/Shared.scss';
+
+.card {
+    margin: 1rem auto;
+    border-radius: 6px;
+    background: linear-gradient($purple_red_gradient);
+    background-size: 400% 400%;
+    animation: gradient 5s linear infinite;
+    padding: 1rem;
+    width: 90%;
+    max-width: 40rem;
+    box-shadow: $purple_shadow;
+
+    &--spaced{
+        margin: 3rem auto;;
+    }
+  }

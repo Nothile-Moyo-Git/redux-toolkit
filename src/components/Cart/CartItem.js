@@ -1,22 +1,22 @@
-import classes from './CartItem.module.css';
+import './CartItem.scss';
 
 const CartItem = (props) => {
   const { title, quantity, total, price } = props.item;
 
   return (
-    <li className={classes.item}>
+    <li className="item">
       <header>
         <h3>{title}</h3>
-        <div className={classes.price}>
+        <div className="price">
           ${total.toFixed(2)}{' '}
-          <span className={classes.itemprice}>(${price.toFixed(2)}/item)</span>
+          <span className="itemprice">(${price.toFixed(2)}/item)</span>
         </div>
       </header>
-      <div className={classes.details}>
-        <div className={classes.quantity}>
+      <div className="details">
+        <div className="quantity">
           x <span>{quantity}</span>
         </div>
-        <div className={classes.actions}>
+        <div className="actions">
           <button>-</button>
           <button>+</button>
         </div>

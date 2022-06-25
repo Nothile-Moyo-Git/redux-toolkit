@@ -1,3 +1,4 @@
+// Slowly increase opacity of the card
 @keyframes fade-in{
 
     0%{ opacity: 0; }
@@ -5,6 +6,7 @@
 
 }
 
+// Change the gradient of the colors assuming the background size is big enough
 @keyframes gradient{
 
     0%{
@@ -16,6 +18,21 @@
     100%{
         background-position: 0% 50%;
     }
+}
+
+// Pulse hover effect
+@keyframes pulse{
+
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.05);
+    }
+    100%{
+        transform: scale(1);
+    }
+
 }
 
 // Standard transition
