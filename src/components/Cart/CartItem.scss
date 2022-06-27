@@ -1,7 +1,9 @@
+@import '../../styles/Shared.scss';
+
 .item {
     margin: 1rem 0;
-    background-color: #575757;
-    padding: 1rem;
+    border-top: 1px solid white;
+    padding: 1rem 0;
   }
   
   .item h3 {
@@ -49,10 +51,11 @@
     margin-left: 0.5rem;
     padding: 0.15rem 1rem;
     color: white;
-  }
-  
-  .actions button:hover,
-  .actions button:active {
-    background-color: #4b4b4b;
-    color: white;
+    border-radius: 1.25rem;
+    transition: all 0.15s linear;
+
+    @include state(){
+      background-color: white;
+      color: $brand_color_two;
+    }
   }
