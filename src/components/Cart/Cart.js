@@ -9,8 +9,7 @@ const Cart = (props) => {
   // import our cart items
   const items = useSelector(state => state.cart.cartItems);
 
-  const testItem = items.testItem;
-  testItem.title = items.name;
+  const testItem = {title: items.testItem.name, quantity: items.testItem.quantity, total: items.testItem.total, price: items.testItem.price};
   
   return (
     <div className="cart-wrapper">
