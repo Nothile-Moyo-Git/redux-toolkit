@@ -1,13 +1,10 @@
 import './CartButton.scss';
 
 // Import selector and dispatch
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toggleActions } from '../../store';
 
 const CartButton = (props) => {
-
-  // Import our cart
-  const cart = useSelector(state => state.toggle);
 
   // Get our dispatcher so we can toggle the cart
   const dispatch = useDispatch();

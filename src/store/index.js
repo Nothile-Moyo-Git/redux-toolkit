@@ -4,8 +4,8 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 // Setting up our initial cart state
 const initialCartState = { 
     total : 0, 
-    items : {
-        testItem: {name: 'Test Item', price: '6'}
+    cartItems : {
+        testItem: {name: 'Test Item', price: 6, quantity: 3, total: 18}
     } 
 };
 
@@ -14,28 +14,55 @@ const initialToggleState = {
     showCart : false,
 }
 
+const initialItemsState = {
+    items : [
+        {name: 'Test Item', price: 6},
+        {name: 'Test Item 2', price: 8}
+    ]
+}
+
 // Creating our cart slice
 const cartSlice = createSlice({
     name: 'cart',
     initialState: initialCartState,
     reducers: {
-        setTasks(state, action){ state.items = action.payload.items }
+        setTasks(state, action){ state.cartItems = action.payload.items; },
+        increment(state){ 
+            state.cartItems.testItem.quantity++;
+            state.cartItems.testItem.total += state.cartItems.testItem.price;
+        },
+        decrement(state){
+            state.cartItems.testItem.quantity--; 
+            state.cartItems.testItem.total -= state.cartItems.testItem.price;            
+        }
     }   
 });
 
+// Creating our toggle button slice
 const toggleSlice = createSlice({
     name: 'toggle',
     initialState: initialToggleState,
     reducers: {
-        showCart(state){ state.showCart = !state.showCart }
+        showCart(state){ state.showCart = !state.showCart; }
     }
+});
+
+// Creating our items slice ( for updates )
+const itemSlice = createSlice({
+    name: 'items',
+    initialState: initialItemsState,
+    reducers: {
+        update(state, action){ state.items = action.payload.items; }
+    }
+
 });
 
 // Creating our store
 const store = configureStore({
     reducer: {
         'cart' : cartSlice.reducer,
-        'toggle' : toggleSlice.reducer
+        'toggle' : toggleSlice.reducer,
+        'items' : itemSlice.reducer
     }
 });
 
@@ -44,3 +71,4 @@ const store = configureStore({
 export default store;
 export const cartActions = cartSlice.actions;
 export const toggleActions = toggleSlice.actions;
+export const itemActions = itemSlice.actions;

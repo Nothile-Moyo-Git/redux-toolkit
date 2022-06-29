@@ -1,7 +1,27 @@
 import './CartItem.scss';
+import { useDispatch } from 'react-redux';
+
+import { cartActions } from '../../store';
 
 const CartItem = (props) => {
+  
+  // Our current item
   const { title, quantity, total, price } = props.item;
+
+  // Get our dispatch function in order to increment and decrement our quantities
+  const dispatch = useDispatch();
+
+  // Increment handler which calls our dispatch reducer
+  const incrementHandler = (event) => {
+    event.preventDefault();
+    dispatch( cartActions.increment() );
+  }
+
+  // Decrement handler which calls our dispatch reducer
+  const decrementHandler = (event) => {
+    event.preventDefault();
+    dispatch( cartActions.decrement() );
+  }
 
   return (
     <li className="item">
@@ -17,8 +37,8 @@ const CartItem = (props) => {
           x <span>{quantity}</span>
         </div>
         <div className="actions">
-          <button>-</button>
-          <button>+</button>
+          <button onClick={decrementHandler}>-</button>
+          <button onClick={incrementHandler}>+</button>
         </div>
       </div>
     </li>
