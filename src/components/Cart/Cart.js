@@ -10,6 +10,7 @@ const Cart = (props) => {
   const items = useSelector(state => state.cart.cartItems);
 
   const testItem = items.testItem;
+  testItem.title = items.name;
   
   return (
     <div className="cart-wrapper">
