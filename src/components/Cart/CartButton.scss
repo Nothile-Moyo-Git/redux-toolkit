@@ -10,6 +10,7 @@
     border-radius: 20px;
     font-size: 1.25rem;
     font-weight: 600;
+    box-shadow: $box_shadow;
 
     @include state(){
         background: white;
@@ -41,5 +42,6 @@
         border-radius: 30px;
         padding: 0.15rem 0.5rem;
         color: $brand_color_two;
+        margin-right: 0;
     }
 }
