@@ -10,7 +10,10 @@ const Cart = (props) => {
   const items = useSelector(state => state.cart.cartItems);
 
   const testItem = {title: items.testItem.name, quantity: items.testItem.quantity, total: items.testItem.total, price: items.testItem.price};
-  
+
+  // Dummy data which we will use when we go back
+  // const dummyItem = {title: 'Test Item', quantity: 3, total: 18, price: 6};
+
   return (
     <div className="cart-wrapper">
       <Card className="cart">

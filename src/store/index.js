@@ -16,8 +16,11 @@ const initialToggleState = {
 
 const initialItemsState = {
     items : [
-        {name: 'Test Item', price: 6},
-        {name: 'Test Item 2', price: 8}
+        {
+            name: 'Test Item', 
+            price: 6, 
+            description: 'This is a first product, amazing!'
+        }
     ]
 }
 
@@ -34,6 +37,10 @@ const cartSlice = createSlice({
         decrement(state){
             state.cartItems.testItem.quantity--; 
             state.cartItems.testItem.total -= state.cartItems.testItem.price;            
+        },
+        addToCart(state){
+            state.cartItems.testItem.quantity++;
+            state.cartItems.testItem.total += 6;                        
         }
     }   
 });
