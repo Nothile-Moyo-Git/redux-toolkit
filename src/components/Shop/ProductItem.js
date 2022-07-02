@@ -1,11 +1,12 @@
 import Card from '../UI/Card';
 import './ProductItem.scss';
+
 import { useDispatch } from 'react-redux';
-import { cartActions } from '../../store';
+import { cartActions } from '../../store/cart-slice';
 
 const ProductItem = (props) => {
   // Pulling the data from Products list
-  const { title, price, description } = props;
+  const { title, price, description, id } = props;
 
   // Creating our dispatch pointer in order to update 
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const ProductItem = (props) => {
   // Add to cart handler
   const addToCartHandler = (event) => {
     event.preventDefault();
-    dispatch( cartActions.addToCart() );
+    dispatch( cartActions.addItemToCart({ id, title, price}) );
   }
 
   return (

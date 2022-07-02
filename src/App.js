@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 function App() {
 
   // Import our show cart variable from our state slice
-  const showCart = useSelector(state => state.toggle.showCart);
+  const showCart = useSelector(state => state.ui.cartIsVisible);
 
   return (
     <section className="backdrop">

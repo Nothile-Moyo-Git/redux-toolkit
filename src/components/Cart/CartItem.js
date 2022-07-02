@@ -14,13 +14,11 @@ const CartItem = (props) => {
   // Increment handler which calls our dispatch reducer
   const incrementHandler = (event) => {
     event.preventDefault();
-    dispatch( cartActions.increment() );
   }
 
   // Decrement handler which calls our dispatch reducer
   const decrementHandler = (event) => {
     event.preventDefault();
-    dispatch( cartActions.decrement() );
   }
 
   return (
@@ -37,8 +35,8 @@ const CartItem = (props) => {
           x <span>{quantity}</span>
         </div>
         <div className="actions">
-          <button onClick={decrementHandler}>-</button>
-          <button onClick={incrementHandler}>+</button>
+          <button>-</button>
+          <button>+</button>
         </div>
       </div>
     </li>
