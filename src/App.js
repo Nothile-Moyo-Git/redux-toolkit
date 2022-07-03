@@ -13,7 +13,7 @@ function App() {
   return (
     <section className="backdrop">
       <Layout>
-        { showCart && <Cart/> }
+        <Cart showCart={showCart} />
         <Products />
       </Layout>
     </section>

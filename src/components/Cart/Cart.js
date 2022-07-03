@@ -4,16 +4,18 @@ import CartItem from './CartItem';
 
 import { useSelector } from 'react-redux';
 
-const Cart = () => {
+const Cart = (props) => {
 
   const cartItems = useSelector(state => state.cart.items);
+
+  const showCart = props.showCart && cartItems.length > 0;
 
   // Dummy data which we will use when we go back
   // const dummyItem = {title: 'Test Item', quantity: 3, total: 18, price: 6};
 
   return (
     <div className="cart-wrapper">
-      <Card className="cart">
+      <Card className={`cart ${!showCart && 'cart--hidden'}`}>
         <h2>Your Shopping Cart</h2>
         <ul>
           { /* <CartItem item={dummyItem}/> */ }

@@ -15,6 +15,12 @@
         padding: 0;
         margin: 0;
     }
+
+    &--hidden{
+        height: 0px;
+        opacity: 0;
+        margin-top: 0px;
+    }
 }
 
 .cart-wrapper{
