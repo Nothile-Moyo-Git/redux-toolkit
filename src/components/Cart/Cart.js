@@ -14,7 +14,7 @@ const Cart = (props) => {
   // const dummyItem = {title: 'Test Item', quantity: 3, total: 18, price: 6};
 
   return (
-    <div className="cart-wrapper">
+    <div className={`cart-wrapper ${!showCart && 'cart-wrapper--hidden'}`}>
       <Card className={`cart ${!showCart && 'cart--hidden'}`}>
         <h2>Your Shopping Cart</h2>
         <ul>
