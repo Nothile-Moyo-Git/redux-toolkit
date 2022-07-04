@@ -1,5 +1,5 @@
 import './CartItem.scss';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 // Import our cart actions
 import { cartActions } from '../../store/cart-slice';
@@ -12,9 +12,6 @@ const CartItem = (props) => {
   // Get our dispatch function in order to increment and decrement our quantities
   const dispatch = useDispatch();
 
-  // Get our current state for testing
-  const existingItem = useSelector(state => state.cart.items);
-
   // Increment handler which calls our dispatch reducer
   const incrementHandler = (event) => {
     event.preventDefault();
@@ -24,9 +21,7 @@ const CartItem = (props) => {
   // Decrement handler which calls our dispatch reducer
   const decrementHandler = (event) => {
     event.preventDefault();
-    console.log(existingItem);
     dispatch( cartActions.removeItemFromCart(id) );
-    console.log(existingItem);
   }
 
   return (
