@@ -10,8 +10,10 @@ const Cart = (props) => {
   // Get all items in our cart for a loop
   const cartItems = useSelector(state => state.cart.items);
 
+  // If we have items in our cart and it's larger than 0 items, then show it
   const showCart = props.showCart && cartItems.length > 0;
 
+  // Our dispatch function
   const dispatch = useDispatch();
 
   cartItems.length === 0 && dispatch( uiActions.setFalse() );
@@ -21,7 +23,6 @@ const Cart = (props) => {
       <Card className={`cart cart--thin ${!showCart && 'cart--hidden'}`}>
         <h2>Your Shopping Cart</h2>
         <ul>
-          { /* <CartItem item={dummyItem}/> */ }
           { cartItems.map((item, index) => {
             return(
               <CartItem 
