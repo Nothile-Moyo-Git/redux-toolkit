@@ -2,7 +2,7 @@ import Card from '../UI/Card';
 import './Cart.scss';
 import CartItem from './CartItem';
 import { uiActions } from '../../store/ui-slice';
-
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Cart = (props) => {
@@ -16,7 +16,9 @@ const Cart = (props) => {
   // Our dispatch function
   const dispatch = useDispatch();
 
-  cartItems.length === 0 && dispatch( uiActions.setFalse() );
+  useEffect(() => {
+    cartItems.length === 0 && dispatch( uiActions.setFalse() );
+  },[cartItems.length, dispatch]);
 
   return (
     <div className={`cart-wrapper ${!showCart && 'cart-wrapper--hidden'}`}>
