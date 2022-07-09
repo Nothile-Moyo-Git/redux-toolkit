@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { uiActions } from "./ui-slice";
+
 const initialState = {
     items: [],
     totalQuantity: 0,
@@ -47,5 +49,38 @@ const cartSlice = createSlice({
     }
 });
 
+// Creating our action creator, since it's not a reducer in redux we can perform async tasks here
+const sendCartData = (cart, dispatchFunction) => {
+
+    console.log(`called`);
+    console.log(cart);
+
+    return async (dispatch) => {
+
+        dispatch( uiActions.showNotification({
+            status: 'pending',
+            title: 'Sending...',
+            message: 'Sending cart data!',
+        }) );
+
+        const response = await fetch('https://redux-toolkit-1c97f-default-rtdb.europe-west1.firebasedatabase.app/cart-copy.json', {
+            method: 'PUT',
+            body: JSON.stringify(cart),
+        });
+
+        if(!response.ok){
+            throw new Error('Sending cart data failed');
+        }
+
+        dispatch( uiActions.showNotification({
+            status: 'success',
+            title: 'Success',
+            message: 'Sent cart data successfully',
+        }) );
+
+    };
+};
+
 export default cartSlice;
 export const cartActions = cartSlice.actions;
+export const updateCart = sendCartData;

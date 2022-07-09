@@ -6,6 +6,7 @@ import './styles/App.scss';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { uiActions } from './store/ui-slice';
+import { updateCart } from './store/cart-slice';
 
 let isInitial = true;
 
@@ -20,12 +21,12 @@ function App() {
 
   useEffect(() => {
 
-    const sendCartData = async () => {
+    if(isInitial){
+      isInitial = false;
+      return;
+    }
 
-      if(isInitial){
-        isInitial = false;
-        return;
-      }
+    const sendCartData = async () => {
 
       // Dispatch our notification action when we do the intial check
       dispatch( uiActions.showNotification({
@@ -54,6 +55,9 @@ function App() {
       }) );
 
     }
+
+    const updatedCart = updateCart(cart, dispatch);
+    updatedCart();
 
     sendCartData().catch(error => {
       dispatch(
