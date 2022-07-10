@@ -6,7 +6,7 @@ import './styles/App.scss';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { uiActions } from './store/ui-slice';
-import { updateCart } from './store/cart-slice';
+import { cartUpdater } from './store/cart-slice';
 
 let isInitial = true;
 
@@ -26,45 +26,55 @@ function App() {
       return;
     }
 
-    const sendCartData = async () => {
+  //   const sendCartData = async () => {
 
-      // Dispatch our notification action when we do the intial check
-      dispatch( uiActions.showNotification({
-        status: 'pending',
-        title: 'Sending...',
-        message: 'Sending cart data!',
-      }) );
+  //     // Dispatch our notification action when we do the intial check
+  //     dispatch( uiActions.showNotification({
+  //       status: 'pending',
+  //       title: 'Sending...',
+  //       message: 'Sending cart data!',
+  //     }) );
 
-      // Create a PUT request which checks if this content exists, if it does, override it. If it doesn't, create it
-      // We pass a json object through to the database by using JSON.stringify
-      const response = await fetch('https://redux-toolkit-1c97f-default-rtdb.europe-west1.firebasedatabase.app/cart.json', {
-        method: 'PUT',
-        body: JSON.stringify(cart),
-      });
+  //     // Create a PUT request which checks if this content exists, if it does, override it. If it doesn't, create it
+  //     // We pass a json object through to the database by using JSON.stringify
+  //     const response = await fetch('https://redux-toolkit-1c97f-default-rtdb.europe-west1.firebasedatabase.app/cart.json', {
+  //       method: 'PUT',
+  //       body: JSON.stringify(cart),
+  //     });
 
-      // Throw an error if our request fails
-      if(!response.ok){
-        throw new Error('Sending cart data failed');
-      }
+  //     // Throw an error if our request fails
+  //     if(!response.ok){
+  //       throw new Error('Sending cart data failed');
+  //     }
 
-      // Display a success notification
-      dispatch( uiActions.showNotification({
-        status: 'success',
-        title: 'Success',
-        message: 'Sent cart data successfully',
-      }) );
+  //     // Display a success notification
+  //     dispatch( uiActions.showNotification({
+  //       status: 'success',
+  //       title: 'Success',
+  //       message: 'Sent cart data successfully',
+  //     }) );
 
-    }
+  //   }
 
-    const updatedCart = updateCart(cart, dispatch);
-    updatedCart();
+  //  sendCartData().catch(error => {
+  //     dispatch(
+  //       uiActions.showNotification({
+  //         status: 'error',
+  //         title: 'Error',
+  //         message: 'Failed to send data'
+  //       })
+  //     );
+  //   }); 
 
-    sendCartData().catch(error => {
+    const updatedCart = cartUpdater(cart, dispatch);
+    
+    updatedCart().catch(() => {
+
       dispatch(
         uiActions.showNotification({
           status: 'error',
           title: 'Error',
-          message: error
+          message: 'Cannot resolve fetch url'
         })
       );
     });
