@@ -50,9 +50,9 @@ const cartSlice = createSlice({
 });
 
 // Creating our action creator, since it's not a reducer in redux we can perform async tasks here
-const sendCartData = (cart, dispatch) => {
+export const sendCartData = (cart) => {
 
-    return async () => {
+    return async (dispatch) => {
 
         dispatch( uiActions.showNotification({
             status: 'pending',
@@ -60,24 +60,43 @@ const sendCartData = (cart, dispatch) => {
             message: 'Sending cart data!',
         }) );
 
-        const response = await fetch('https://redux-toolkit-1c97f-default-rtdb.europe-west1.firebasedatabase.app/cart.json', {
-            method: 'PUT',
-            body: JSON.stringify(cart),
-        });
+        const sendRequest = async () => {
 
-        if(!response.ok){
-            throw new Error('Sending cart data failed');
+            const response = await fetch('https://redux-toolkit-1c97f-default-rtdb.europe-west1.firebasedatabase.app/cart.json', {
+                method: 'PUT',
+                body: JSON.stringify(cart),
+            });
+    
+            if(!response.ok){
+                throw new Error('Sending cart data failed');
+            }
+
+        };
+
+        try{
+            await sendRequest();
+
+            dispatch( uiActions.showNotification({
+                status: 'success',
+                title: 'Success',
+                message: 'Sent cart data successfully',
+            }) );
+
+        }catch(error) {
+
+            dispatch(
+                uiActions.showNotification({
+                  status: 'error',
+                  title: 'Error',
+                  message: 'Cannot resolve fetch call'
+                })
+            );
+
+            throw new Error(error);
         }
-
-        dispatch( uiActions.showNotification({
-            status: 'success',
-            title: 'Success',
-            message: 'Sent cart data successfully',
-        }) );
 
     };
 };
 
 export default cartSlice;
 export const cartActions = cartSlice.actions;
-export const cartUpdater = sendCartData;
