@@ -5,9 +5,10 @@ import Products from './components/Shop/Products';
 import Notification from './components/UI/Notifications';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { sendCartData } from './store/cart-slice';
+import { sendCartData, fetchCartData } from './store/cart-actions';
 
 let isInitial = true;
+let isLoaded = false;
 
 function App() {
 
@@ -20,17 +21,26 @@ function App() {
 
   useEffect(() => {
 
+    dispatch( fetchCartData() );
+
+  },[dispatch]);
+
+  useEffect(() => {
+
     if(isInitial){
       isInitial = false;
       return;
-    }   
-
-    // const updatedCart = sendCartData(cart);
+    }
     
-    // updatedCart(dispatch);
-    dispatch(sendCartData(cart));
+    if(!isLoaded){
+      isLoaded = true;
+      return;
+    }
+
+    dispatch( sendCartData(cart) );
 
   },[cart, dispatch]);
+
 
   return (
     <section className="backdrop">

@@ -13,7 +13,10 @@ $brand_color_eleven: #D65BCA;
 $brand_color_twelve: #21D190;
 $brand_color_thirteen: #96E4DF;
 $brand_color_fourteen: #4DCCC6;
-
+$brand_color_fifteen: #05E8BA;
+$brand_color_sixteen: #087EE1;
+$brand_color_seventeen: #3BB78F;
+$brand_color_eighteen: #0BAB64;
 
 // backdrop
 $backdrop_color_one: rgb(30, 32, 42);
@@ -22,7 +25,7 @@ $backdrop_color_one: rgb(30, 32, 42);
 $purple_gradient: ( $brand_color_one, $brand_color_two );
 $purple_red_gradient: ( 60deg, $brand_color_one, $brand_color_two, $brand_color_three, $brand_color_nine );
 $email_gradient: ( 60deg, $brand_color_eight, $brand_color_two, $brand_color_three, $brand_color_nine );
-$green_gradient: ( 60deg, $brand_color_twelve, $brand_color_thirteen );
+$green_gradient: ( 60deg, $brand_color_twelve, $brand_color_fourteen, $brand_color_fifteen, $brand_color_eighteen );
 
 // box shadow
 $box_shadow: (0px 0px 20px 0px rgba(0,0,0,0.4));
