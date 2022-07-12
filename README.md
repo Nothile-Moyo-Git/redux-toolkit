@@ -17,7 +17,7 @@ It creates a store in the 'index.js' function in the store folder.
 This acts as a global 'state' for my application.
 On initial render, the app grabs the current cart from the database using the fetch API. It does this by dispatching 'fetchCartData'.
 
-Once it grabs the cart, it displays it, and if the user updates the cart in anyway, we update our redux store and we send a put request to the database.
+Once it grabs the cart, it displays it, and if the user updates the cart in any way, we update our redux store and we send a put request to the database.
 
 This allows us to have a realtime redux store for our state and our database.
 
