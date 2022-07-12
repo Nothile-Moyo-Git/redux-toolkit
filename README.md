@@ -1,6 +1,7 @@
 # Nothile's Redux Toolkit App
 
 This app is currently deployed to Github pages.
+
 View app: https://nothile-moyo-git.github.io/redux-toolkit/
 
 ## Installation
@@ -30,7 +31,9 @@ I use animations alongside manipulating the gradient for the gradient color.
 
 ## Further information
 You can find out more about Redux here: 
+
 https://redux.js.org/
+
 https://redux-toolkit.js.org/
 
 ## Screenshot
