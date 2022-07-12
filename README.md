@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Nothile's Redux Toolkit App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app is currently deployed to Github pages.
+View app: https://nothile-moyo-git.github.io/redux-toolkit/ 
 
-## Available Scripts
+## Installation
+This app is built in React, Redux Toolkit, React Redux, SCSS and Google Firestore for the backend.
 
-In the project directory, you can run:
+You should be able to use 'npm install' in order to get all the packages.
+You should also run 'npm audit fix' after every npm install in order to reduce defencies in your packages.
 
-### `npm start`
+## Description
+This App was designed to learn the fundamentals of redux and how they work with redux in order to work on legacy apps.
+It was also used to experiment with gradients, layouts, & partials in SCSS.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+It creates a store in the 'index.js' function in the store folder.
+This acts as a global 'state' for my application.
+On initial render, the app grabs the current cart from the database using the fetch API. It does this by dispatching 'fetchCartData'.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Once it grabs the cart, it displays it, and if the user updates the cart in anyway, we update our redux store and we send a put request to the database.
 
-### `npm test`
+This allows us to have a realtime redux store for our state and our database.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For our API calls, we used JavaScript promises with nested asynchronous functions (so we can use try catch in our redux slices).
 
-### `npm run build`
+Regarding styling, I created a 'Shared.scss' file in the styles folder.
+This contains all my partial references. 
+In branding you can see the gradients I've created. 
+I use animations alongside manipulating the gradient for the gradient color.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Further information
+You can find out more about Redux here: 
+https://redux.js.org/
+https://redux-toolkit.js.org/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Screenshot
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
