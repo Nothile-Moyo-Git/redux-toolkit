@@ -1,7 +1,7 @@
 # Nothile's Redux Toolkit App
 
 This app is currently deployed to Github pages.
-View app: https://nothile-moyo-git.github.io/redux-toolkit/ 
+View app: https://nothile-moyo-git.github.io/redux-toolkit/
 
 ## Installation
 This app is built in React, Redux Toolkit, React Redux, SCSS and Google Firestore for the backend.
@@ -34,5 +34,7 @@ https://redux.js.org/
 https://redux-toolkit.js.org/
 
 ## Screenshot
+![image](https://user-images.githubusercontent.com/15236959/178575324-f970dfa5-72fb-4d4c-aff9-3907b68a34c6.png)
+
 
 
