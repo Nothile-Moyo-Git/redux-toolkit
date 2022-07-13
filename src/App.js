@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { sendCartData, fetchCartData } from './store/cart-actions';
 
 let isInitial = true;
-let isLoaded = false;
 
 function App() {
 
@@ -29,11 +28,6 @@ function App() {
 
     if(isInitial){
       isInitial = false;
-      return;
-    }
-    
-    if(!isLoaded){
-      isLoaded = true;
       return;
     }
 

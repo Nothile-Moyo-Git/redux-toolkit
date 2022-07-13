@@ -47,7 +47,6 @@
     background-color: transparent;
     border: 2px solid white;
     margin-left: 0.5rem;
-    padding: 0.35rem 1rem;
     color: white;
     border-radius: 1.25rem;
     transition: all 0.15s linear;
@@ -55,6 +54,7 @@
     box-shadow: $box_shadow;
     min-width: 3rem;
     line-height: 1.25rem;
+    padding: 0.5rem 1rem;
 
     @include state(){
       background-color: white;

@@ -9,7 +9,7 @@ const Cart = (props) => {
 
   // Get all items in our cart for a loop
   const cartItems = useSelector(state => state.cart.items);
-
+  
   // If we have items in our cart and it's larger than 0 items, then show it
   const showCart = props.showCart && cartItems.length > 0;
 
@@ -17,7 +17,9 @@ const Cart = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    cartItems.length === 0 && dispatch( uiActions.setFalse() );
+    if(cartItems.length){
+      cartItems.length === 0 && dispatch( uiActions.setFalse() );
+    }
   },[cartItems.length, dispatch]);
 
   return (
