@@ -16,7 +16,13 @@ function App() {
   // Import our show cart variable from our state slice
   const showCart = useSelector(state => state.ui.cartIsVisible);
   const cart = useSelector( state => state.cart );
-  const notification = useSelector( state => state.ui.notification );
+  let notification = useSelector( state => state.ui.notification );
+
+  console.log(notification);
+
+  setTimeout(() => {
+    notification = null;
+  }, 3000);
 
   useEffect(() => {
 
@@ -31,7 +37,9 @@ function App() {
       return;
     }
 
-    dispatch( sendCartData(cart) );
+    if(cart.changed){
+      dispatch( sendCartData(cart) );
+    }
 
   },[cart, dispatch]);
 
@@ -39,7 +47,7 @@ function App() {
   return (
     <section className="backdrop">
       {
-        notification && 
+        notification != null && 
         <Notification
           status={notification.status}
           title={notification.title}
