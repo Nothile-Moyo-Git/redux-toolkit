@@ -3,10 +3,11 @@ import Cart from './components/Cart/Cart';
 import Layout from './components/Layout/Layout';
 import Products from './components/Shop/Products';
 import Notification from './components/UI/Notifications';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { sendCartData, fetchCartData } from './store/cart-actions';
 
+// Skip our initial run so we don't send our empty cart data to the database
 let isInitial = true;
 
 function App() {
@@ -17,12 +18,7 @@ function App() {
   const showCart = useSelector(state => state.ui.cartIsVisible);
   const cart = useSelector( state => state.cart );
   let notification = useSelector( state => state.ui.notification );
-
-  console.log(notification);
-
-  setTimeout(() => {
-    notification = null;
-  }, 3000);
+  const [showNotification, setShowNotification] = useState(true);
 
   useEffect(() => {
 
@@ -37,17 +33,25 @@ function App() {
       return;
     }
 
+    setShowNotification(true);
+
     if(cart.changed){
       dispatch( sendCartData(cart) );
     }
 
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 3000);
+
+
   },[cart, dispatch]);
+
 
 
   return (
     <section className="backdrop">
       {
-        notification != null && 
+        (notification && showNotification) && 
         <Notification
           status={notification.status}
           title={notification.title}
