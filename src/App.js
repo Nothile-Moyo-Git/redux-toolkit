@@ -9,6 +9,7 @@ import { sendCartData, fetchCartData } from './store/cart-actions';
 
 // Skip our initial run so we don't send our empty cart data to the database
 let isInitial = true;
+let hideNotification;
 
 function App() {
 
@@ -33,20 +34,15 @@ function App() {
       return;
     }
 
-    setShowNotification(true);
-
     if(cart.changed){
       dispatch( sendCartData(cart) );
     }
 
-    setTimeout(() => {
-      setShowNotification(false);
-    }, 3000);
-
+    clearTimeout(hideNotification);
+    setShowNotification(true);
+    hideNotification = setTimeout(() => {setShowNotification(false)}, 3000);
 
   },[cart, dispatch]);
-
-
 
   return (
     <section className="backdrop">
