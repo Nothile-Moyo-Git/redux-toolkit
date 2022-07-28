@@ -11,7 +11,7 @@ Install packages: npm install
 
 Reduce deficiencies: npm audit fix
 
-Run app localy: npm run start
+Run app locally: npm run start
 
 ## Description
 This App was designed to learn the fundamentals of redux and how they work with redux in order to work on legacy apps.
