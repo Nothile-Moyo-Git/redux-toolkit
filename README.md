@@ -7,8 +7,9 @@ View app: https://nothile-moyo-git.github.io/redux-toolkit/
 ## Installation
 This app is built in React, Redux Toolkit, React Redux, SCSS and Google Firestore for the backend.
 
-You should be able to use 'npm install' in order to get all the packages.
-You should also run 'npm audit fix' after every npm install in order to reduce defencies in your packages.
+Install packages: npm install
+Reduce deficiencies: npm audit fix
+Run app locally: npm run start
 
 ## Description
 This App was designed to learn the fundamentals of redux and how they work with redux in order to work on legacy apps.
