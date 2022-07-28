@@ -8,7 +8,9 @@ View app: https://nothile-moyo-git.github.io/redux-toolkit/
 This app is built in React, Redux Toolkit, React Redux, SCSS and Google Firestore for the backend.
 
 Install packages: npm install
+
 Reduce deficiencies: npm audit fix
+
 Run app locally: npm run start
 
 ## Description
