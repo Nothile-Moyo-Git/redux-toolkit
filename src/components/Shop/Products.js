@@ -1,6 +1,7 @@
 import ProductItem from './ProductItem';
 import './Products.scss';
 
+// Dummy array that we're using to define our products, we could use a request to get them from a database but this project is about understanding redux
 const DUMMY_PRODUCTS = [
   {
     id: 'p1',

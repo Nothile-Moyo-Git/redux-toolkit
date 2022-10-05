@@ -5,7 +5,8 @@ import { useDispatch } from 'react-redux';
 import { cartActions } from '../../store/cart-slice';
 
 const ProductItem = (props) => {
-  // Pulling the data from Products list
+
+  // Deconstructing the props object with our dummy data pulled from Products.js
   const { title, price, description, id } = props;
 
   // Creating our dispatch pointer in order to update 
@@ -14,6 +15,8 @@ const ProductItem = (props) => {
   // Add to cart handler
   const addToCartHandler = (event) => {
     event.preventDefault();
+
+    // Add an item to our cart, this also triggers an api call to the firestore database which updates that once this is complete
     dispatch( cartActions.addItemToCart({ id, title, price}) );
   }
 
